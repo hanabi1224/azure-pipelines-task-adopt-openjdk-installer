@@ -4,7 +4,6 @@ import * as stream from 'stream';
 import { promisify } from 'util';
 import Got from 'got';
 import * as _ from 'lodash';
-import { JavaFilesExtractor } from './java-files-extractor';
 import * as taskLib from 'azure-pipelines-task-lib/task';
 import * as toolLib from 'azure-pipelines-tool-lib/tool';
 
