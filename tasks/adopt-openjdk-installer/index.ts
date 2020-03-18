@@ -53,6 +53,6 @@ async function run() {
     await runInner(jdkRoot, os, arch, jvm, majorVersion, versionFilter, useCache);
 }
 
-taskLib.setVariable('Agent.TempDirectory', path.join(__dirname, 'temp'));
-taskLib.setVariable('Agent.ToolsDirectory', path.join(__dirname, 'jdk'));
-runInner(path.join(__dirname, 'jdk'), AdoptOpenJDKApi.detectOS(), 'x64', 'hotspot', 11, '', true);
+// taskLib.setVariable('Agent.TempDirectory', path.join(__dirname, 'temp'));
+// taskLib.setVariable('Agent.ToolsDirectory', path.join(__dirname, 'jdk'));
+// runInner(path.join(__dirname, 'jdk'), AdoptOpenJDKApi.detectOS(), 'x64', 'hotspot', 11, '', true);
