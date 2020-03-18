@@ -1,0 +1,49 @@
+{
+    "manifestVersion": 1,
+    "id": "adopt-openjdk-installer",
+    "name": "AdoptOpenJDK Installer for Azure DevOps",
+    "version": "1.0.2",
+    "publisher": "hanabi1224",
+    "public": true,
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],    
+    "description": "Azure pipelines task for installing AdoptOpenJDK.",
+    "categories": [
+        "Azure Pipelines"
+    ],
+    "icons": {
+        "default": "jdk.png"
+    },
+    "repository": {
+        "type": "git",
+        "uri": "https://github.com/hanabi1224/custom-azure-pipelines-tasks"
+    },
+    "tags": [
+        "jdk",
+        "java",
+        "openjdk",
+        "adopt",
+        "adopt openjdk",
+        "adoptopenjdk"
+    ],
+    "files": [
+        {
+            "path": "tasks/adopt-openjdk-installer"
+        }
+    ],
+    "contributions": [
+        {
+            "id": "adopt-openjdk-installer",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "tasks/adopt-openjdk-installer"
+            }
+        }
+    ]
+}

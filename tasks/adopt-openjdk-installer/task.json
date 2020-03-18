@@ -1,6 +1,6 @@
 {
-    "id": "C0E0B74F-0931-47C7-AC27-7C5A19456A37",
-    "name": "AdoptOpenJDKInstaller",
+    "id": "b5377cda-e54d-425a-999a-5cca18d44267",
+    "name": "adopt-openjdk-installer",
     "friendlyName": "Adopt OpenJDK Installer",
     "description": "Download and install adopt openjdk and sets JAVA_HOME",
     "helpUrl": "https://github.com/hanabi1224/custom-azure-pipelines-tasks",
@@ -101,9 +101,8 @@
     ],
     "dataSourceBindings": [],
     "execution": {
-        "Node": {
-            "target": "index.js",
-            "argumentFormat": ""
+        "Node10": {
+            "target": "index.js"
         }
     },
     "messages": {}

@@ -11,7 +11,8 @@
   },
   "scripts": {
     "build": "tsc",
-    "test": "tsc && mocha *.spec.js"
+    "test": "tsc && mocha *.spec.js",
+    "packext": "tsc && tfx extension create --manifest-globs adopt-openjdk-installer.json --rev-version"
   },
   "dependencies": {
     "@types/node": "^10.17.17",

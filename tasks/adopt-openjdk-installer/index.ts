@@ -20,7 +20,7 @@ async function runInner(jdkRoot: string, os: OsType, arch: ArchitectureType, jvm
     const jdkDirectory = await AdoptOpenJDKApi.downloadAndChecksum(found, jdkRoot, useCache);
     const extendedJavaHome = `JAVA_HOME_${majorVersion}_${arch.toUpperCase()}`;
     console.log(`Setting JAVA_HOME to ${jdkDirectory}`);
-    console.log(taskLib.loc(`Setting ${extendedJavaHome} to ${jdkDirectory}`));
+    console.log(`Setting ${extendedJavaHome} to ${jdkDirectory}`);
     taskLib.setVariable('JAVA_HOME', jdkDirectory);
     taskLib.setVariable(extendedJavaHome, jdkDirectory);
     const binPath = path.join(jdkDirectory, 'bin')
@@ -56,3 +56,7 @@ async function run() {
 // taskLib.setVariable('Agent.TempDirectory', path.join(__dirname, 'temp'));
 // taskLib.setVariable('Agent.ToolsDirectory', path.join(__dirname, 'jdk'));
 // runInner(path.join(__dirname, 'jdk'), AdoptOpenJDKApi.detectOS(), 'x64', 'hotspot', 11, '', true);
+
+run().catch(error => {
+    taskLib.setResult(taskLib.TaskResult.Failed, error);
+});
