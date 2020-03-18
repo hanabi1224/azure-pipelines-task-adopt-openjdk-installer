@@ -1,6 +1,6 @@
 {
   "name": "adopt-openjdk-installer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Adopt OpenJDK Installer",
   "main": "index.js",
   "repository": "https://github.com/hanabi1224/custom-azure-pipelines-tasks",
@@ -27,7 +27,10 @@
     "@types/lodash": "^4.14.149",
     "@types/mocha": "^7.0.2",
     "chai": "^4.2.0",
-    "mocha": "^7.1.1",
-    "typescript": "^3.8.3"
+    "mocha": "^7.1.1"
+  },
+  "peerDependencies": {
+    "typescript": "^3.8.3",
+    "tfx-cli": "^0.7.11"
   }
 }
