@@ -125,7 +125,7 @@ assertion-error@^1.1.0:
   resolved "https://registry.yarnpkg.com/assertion-error/-/assertion-error-1.1.0.tgz#e60b6b0e8f301bd97e5375215bda406c85118c0b"
   integrity sha512-jgsaNduz+ndvGyFt3uSuWqvy4lCnIJiovtouQN5JZHOKCS2QuhEdbcQHFhVksz2N2U9hXJo8odG7ETyWlEeuDw==
 
-azure-pipelines-task-lib@2.9.3, azure-pipelines-task-lib@^2.8.0:
+azure-pipelines-task-lib@^2.8.0, azure-pipelines-task-lib@^2.9.3:
   version "2.9.3"
   resolved "https://registry.yarnpkg.com/azure-pipelines-task-lib/-/azure-pipelines-task-lib-2.9.3.tgz#7f62a1de99bace97b840b7ffe54e7712cfc2ba84"
   integrity sha512-SPWKSfgmjyBDVIMzXnnPH0Gv7YXZ+AQ3SyIhNNALAmQpOltqJhgslvzrOClR5rKuoOyJlG0AWZILbZIXCkztAA==
@@ -137,7 +137,7 @@ azure-pipelines-task-lib@2.9.3, azure-pipelines-task-lib@^2.8.0:
     shelljs "^0.3.0"
     uuid "^3.0.1"
 
-azure-pipelines-tool-lib@0.12.0:
+azure-pipelines-tool-lib@^0.12.0:
   version "0.12.0"
   resolved "https://registry.yarnpkg.com/azure-pipelines-tool-lib/-/azure-pipelines-tool-lib-0.12.0.tgz#50fc45d7f4768f8fdf7503c7e74c1261f29a63d5"
   integrity sha512-JAlFvMTtEXISrnJY/kgq0LecLi089RqXRf/gMsXYbflmzszklkc+LUJpR0A7NDmJ+9/MWpKY/ZX+Q/zirYa7gw==

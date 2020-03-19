@@ -2,7 +2,7 @@
     "manifestVersion": 1,
     "id": "adopt-openjdk-installer",
     "name": "AdoptOpenJDK Installer for Azure DevOps",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "publisher": "hanabi1224",
     "public": true,
     "targets": [
@@ -28,12 +28,12 @@
     },
     "links": {
         "support": {
-            "uri": "https://github.com/hanabi1224/custom-azure-pipelines-tasks/issues"
+            "uri": "https://github.com/hanabi1224/azure-pipelines-task-adopt-openjdk-installer/issues"
         }
     },
     "repository": {
         "type": "git",
-        "uri": "https://github.com/hanabi1224/custom-azure-pipelines-tasks"
+        "uri": "https://github.com/hanabi1224/azure-pipelines-task-adopt-openjdk-installer"
     },
     "tags": [
         "jdk",

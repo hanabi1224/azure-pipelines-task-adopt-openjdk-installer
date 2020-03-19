@@ -3,8 +3,8 @@
     "name": "adopt-openjdk-installer",
     "friendlyName": "Adopt OpenJDK Installer",
     "description": "Download and install adopt openjdk and sets JAVA_HOME",
-    "helpUrl": "https://github.com/hanabi1224/custom-azure-pipelines-tasks",
-    "helpMarkDown": "[Learn more about this task](https://github.com/hanabi1224/custom-azure-pipelines-tasks) or [see the AdoptOpenJDK documentation](https://adoptopenjdk.net/releases.html)",
+    "helpUrl": "https://github.com/hanabi1224/azure-pipelines-task-adopt-openjdk-installer",
+    "helpMarkDown": "[Learn more about this task](https://github.com/hanabi1224/azure-pipelines-task-adopt-openjdk-installer) or [see the AdoptOpenJDK documentation](https://adoptopenjdk.net/releases.html)",
     "category": "Tool",
     "runsOn": [
         "Agent",
