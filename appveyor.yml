@@ -1,6 +1,6 @@
 image:
-  - Visual Studio 2019
   - Ubuntu
+  - Visual Studio 2019
 environment:
   nodejs_version: "10"
 install:
@@ -32,6 +32,7 @@ for:
         - image: Ubuntu
     init:
       - nvm use $nodejs_version
+      - export PATH="$(yarn global bin):$PATH"
   - matrix:
       only:
         - image: Visual Studio 2019
