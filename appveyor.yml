@@ -4,11 +4,11 @@ image:
 environment:
   nodejs_version: "10"
 install:
-  - ps: Install-Product node $env:nodejs_version
   - node --version
   - npm --version
   - yarn global add tfx-cli
   - yarn global add typescript
+  - yarn global add lerna
 build: off
 build_script:
   - lerna bootstrap
@@ -26,3 +26,14 @@ artifacts:
     name: vsix
 matrix:
   fast_finish: true
+for:
+  - matrix:
+    only:
+      - image: Ubuntu
+    init:
+      - nvm use $nodejs_version
+  - matrix:
+    only:
+      - image: Visual Studio 2019
+    init:
+      - ps: Install-Product node $env:nodejs_version
