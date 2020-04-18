@@ -1,6 +1,6 @@
 {
   "name": "adopt-openjdk-installer",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Adopt OpenJDK Installer",
   "main": "index.js",
   "repository": "https://github.com/hanabi1224/azure-pipelines-task-adopt-openjdk-installer",
