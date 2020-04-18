@@ -8,8 +8,6 @@ should();
 describe('adopt-openjdk-api', function () {
 
     describe('fetch', function () {
-        this.retries(2);
-
         const osList: OsType[] = ['windows', 'linux', 'mac'];
         const jvmList: JvmType[] = ['hotspot', 'openj9'];
         const jdkVersions = [8, 9, 10, 11, 12, 13, 14];
@@ -21,6 +19,8 @@ describe('adopt-openjdk-api', function () {
                     archList.forEach(arch => {
                         const testName = `jdk${version}-${os}-${jvm}-${arch}`;
                         it(testName, async function () {
+                            this.timeout(10000);
+                            this.retries(2);
                             const entries = await AdoptOpenJDKApi.fetch(os, jvm, version, arch);
                             if (arch === 'x64' && jvm === 'hotspot') {
                                 entries.length.should.greaterThan(0);
