@@ -83,6 +83,9 @@ export async function downloadAndChecksum(entry: AdoptOpenJDKApiResultEntry, jdk
         console.log(`Creating jdk root ${jdkRoot}`);
         taskLib.mkdirP(jdkRoot);
     }
+    else {
+        console.log(`Using jdk root ${jdkRoot}`);
+    }
 
     const downloaded = await toolLib.downloadTool(link);
 
@@ -90,7 +93,11 @@ export async function downloadAndChecksum(entry: AdoptOpenJDKApiResultEntry, jdk
 
     // const cached = await toolLib.cacheFile(downloaded, name, 'openjdk-archive', entry.release_name, entry.binary.architecture);
     if (name.endsWith('.zip')) {
-        await toolLib.extractZip(downloaded, jdkRoot);
+        try {
+            await toolLib.extractZip(downloaded, jdkRoot);
+        } catch (error) {
+            await toolLib.extract7z(downloaded, jdkRoot);
+        }
     }
     else if (name.endsWith('.tar') || name.endsWith('.tar.gz')) {
         await toolLib.extractTar(downloaded, jdkRoot);
