@@ -13,7 +13,7 @@ type AdoptOpenJDKApiResultEntry = {
         architecture: ArchitectureType,
         download_count: number,
         heap_size: string,
-        image_type: string,
+        image_type: 'jdk' | 'jre',
         jvm_impl: JvmType,
         os: OsType,
         project: string,
@@ -40,6 +40,7 @@ export async function fetch(os: OsType, jvm: JvmType, majorVersion: number, arch
     return _.chain(response.body).filter(
         entry => entry.binary?.os === os
             && entry.binary?.architecture === arch
+            && entry.binary.image_type === 'jdk'
             && entry.binary?.package?.name?.length > 0
             && (entry.binary.package.name.endsWith('.zip') || entry.binary.package.name.endsWith('.tar.gz'))).value();
 }
