@@ -8,8 +8,6 @@ should();
 describe('adopt-openjdk-api', function () {
 
     describe('fetch', function () {
-        this.retries(2);
-
         const osList: OsType[] = ['windows', 'linux', 'mac'];
         const jvmList: JvmType[] = ['hotspot', 'openj9'];
         const jdkVersions = [8, 9, 10, 11, 12, 13, 14];
@@ -21,6 +19,8 @@ describe('adopt-openjdk-api', function () {
                     archList.forEach(arch => {
                         const testName = `jdk${version}-${os}-${jvm}-${arch}`;
                         it(testName, async function () {
+                            this.timeout(10000);
+                            this.retries(2);
                             const entries = await AdoptOpenJDKApi.fetch(os, jvm, version, arch);
                             if (arch === 'x64' && jvm === 'hotspot') {
                                 entries.length.should.greaterThan(0);
@@ -47,11 +47,11 @@ describe('adopt-openjdk-api', function () {
     describe('filter', function () {
         this.retries(2);
 
-        it('jdk-11.0.6+10', async function () {
+        it('jdk-11.0.7+10', async function () {
             const entries = await AdoptOpenJDKApi.fetch('windows', 'openj9', 11, 'x64');
             entries.length.should.greaterThan(0);
-            const found = AdoptOpenJDKApi.filter(entries, '11.0.6+10');
-            found.release_name.should.equal('jdk-11.0.6+10_openj9-0.18.1');
+            const found = AdoptOpenJDKApi.filter(entries, '11.0.7+10');
+            found.release_name.should.equal('jdk-11.0.7+10_openj9-0.20.0');
         });
 
         it('jdk-11-latest', async function () {
