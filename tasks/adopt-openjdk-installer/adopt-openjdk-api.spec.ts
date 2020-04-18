@@ -51,7 +51,7 @@ describe('adopt-openjdk-api', function () {
             const entries = await AdoptOpenJDKApi.fetch('windows', 'openj9', 11, 'x64');
             entries.length.should.greaterThan(0);
             const found = AdoptOpenJDKApi.filter(entries, '11.0.7+10');
-            found.release_name.should.equal('jdk-11.0.7+10_openj9-0.18.1');
+            found.release_name.should.equal('jdk-11.0.7+10_openj9-0.20.0');
         });
 
         it('jdk-11-latest', async function () {
