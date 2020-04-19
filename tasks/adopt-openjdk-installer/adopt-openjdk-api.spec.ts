@@ -29,9 +29,10 @@ describe('adopt-openjdk-api', function () {
                                 entry => {
                                     try {
                                         entry.release_name.should.not.be.empty;
-                                        entry.binary.os.should.equal(os);
-                                        entry.binary.architecture.should.equal(arch);
-                                        entry.binary.jvm_impl.should.equal(jvm);
+                                        entry.scm_ref.should.not.be.empty;
+                                        entry.os.should.equal(os);
+                                        entry.architecture.should.equal(arch);
+                                        entry.jvm_impl.should.equal(jvm);
                                     } catch (error) {
                                         console.error(entry);
                                         throw error;
@@ -50,8 +51,8 @@ describe('adopt-openjdk-api', function () {
         it('jdk-11.0.7+10', async function () {
             const entries = await AdoptOpenJDKApi.fetch('windows', 'openj9', 11, 'x64');
             entries.length.should.greaterThan(0);
-            const found = AdoptOpenJDKApi.filter(entries, '11.0.7+10');
-            found.release_name.should.equal('jdk-11.0.7+10_openj9-0.20.0');
+            const found = AdoptOpenJDKApi.filter(entries, '11.0.6+10');
+            found.release_name.should.equal('jdk-11.0.6+10_openj9-0.18.0');
         });
 
         it('jdk-11-latest', async function () {

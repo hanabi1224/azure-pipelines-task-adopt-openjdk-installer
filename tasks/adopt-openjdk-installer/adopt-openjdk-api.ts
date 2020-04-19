@@ -7,61 +7,73 @@ import * as _ from 'lodash';
 import * as taskLib from 'azure-pipelines-task-lib/task';
 import * as toolLib from 'azure-pipelines-tool-lib/tool';
 
+type AdoptOpenJDKApiBinaryEntry = {
+    architecture: ArchitectureType,
+    download_count: number,
+    heap_size: string,
+    image_type: 'jdk' | 'jre',
+    jvm_impl: JvmType,
+    os: OsType,
+    project: string,
+    scm_ref: string,
+    updated_at: string,
+    package: {
+        checksum: string,
+        checksum_link: string,
+        download_count: number,
+        link: string,
+        name: string,
+        size: number,
+    },
+    release_name: string,
+};
+
 type AdoptOpenJDKApiResultEntry = {
     release_name: string,
-    binary: {
-        architecture: ArchitectureType,
-        download_count: number,
-        heap_size: string,
-        image_type: 'jdk' | 'jre',
-        jvm_impl: JvmType,
-        os: OsType,
-        project: string,
-        scm_ref: string,
-        updated_at: string,
-        package: {
-            checksum: string,
-            checksum_link: string,
-            download_count: number,
-            link: string,
-            name: string,
-            size: number,
-        },
-    },
+    binaries: AdoptOpenJDKApiBinaryEntry[],
 };
-type AdoptOpenJDKApiResult
-    = AdoptOpenJDKApiResultEntry[];
+type AdoptOpenJDKApiResult = AdoptOpenJDKApiResultEntry[];
 
 const pipeline = promisify(stream.pipeline);
 
-export async function fetch(os: OsType, jvm: JvmType, majorVersion: number, arch: ArchitectureType): Promise<AdoptOpenJDKApiResult> {
-    const url = `https://api.adoptopenjdk.net/v3/assets/latest/${majorVersion}/${jvm}?release=latest`;
+export async function fetch(os: OsType, jvm: JvmType, majorVersion: number, arch: ArchitectureType): Promise<AdoptOpenJDKApiBinaryEntry[]> {
+    // const url = `https://api.adoptopenjdk.net/v3/assets/latest/${majorVersion}/${jvm}?release=latest`;
+    const url = `https://api.adoptopenjdk.net/v3/assets/feature_releases/${majorVersion}/ga?jvm_impl=${jvm}&os=${os}&vendor=adoptopenjdk&`;
     const response = await Got.get<AdoptOpenJDKApiResult>(url, { responseType: 'json' });
-    return _.chain(response.body).filter(
-        entry => entry.binary?.os === os
-            && entry.binary?.architecture === arch
-            && entry.binary.image_type === 'jdk'
-            && entry.binary?.package?.name?.length > 0
-            && (entry.binary.package.name.endsWith('.zip') || entry.binary.package.name.endsWith('.tar.gz'))).value();
+
+    response.body.forEach(release => {
+        release.binaries.forEach(b => {
+            b.release_name = release.release_name;
+        })
+    });
+
+    return _.chain(response.body).map(e => e.binaries).flatten().filter(
+        entry => entry?.os === os
+            && entry?.architecture === arch
+            && entry.image_type === 'jdk'
+            && entry?.package?.name?.length > 0
+            && entry?.release_name?.length > 0
+            && (entry.package.name.endsWith('.zip') || entry.package.name.endsWith('.tar.gz'))).value();
 }
 
-export function filter(result: AdoptOpenJDKApiResult, versionFilter: string) {
-    return _.chain(result).find(entry => !versionFilter || entry.release_name.indexOf(versionFilter) >= 0).value();
+export function filter(entries: AdoptOpenJDKApiBinaryEntry[], versionFilter: string) {
+    return _.chain(entries).find(entry => !versionFilter || entry.release_name.indexOf(versionFilter) >= 0).value();
 }
 
-export async function downloadAndChecksum(entry: AdoptOpenJDKApiResultEntry, jdkRoot: string, useCache: boolean) {
-    const toolName = `openjdk-${entry.binary.jvm_impl}`;
+export async function downloadAndChecksum(entry: AdoptOpenJDKApiBinaryEntry, jdkRoot: string, useCache: boolean) {
+    const toolName = `openjdk-${entry.jvm_impl}`;
 
-    const name = entry.binary.package.name;
-    const link = entry.binary.package.link;
-    const checksum = entry.binary.package.checksum;
-    const arch = entry.binary.architecture;
+    const name = entry.package.name;
+    const link = entry.package.link;
+    const checksum = entry.package.checksum;
+    const arch = entry.architecture;
 
     if (jdkRoot.indexOf(arch) <= 0) {
         jdkRoot = path.join(jdkRoot);
     }
 
-    const jdkDir = process.platform === 'darwin' ? path.join(jdkRoot, entry.release_name, 'Contents', 'Home') : path.join(jdkRoot, entry.release_name);
+    const subDirName = entry.release_name;
+    const jdkDir = process.platform === 'darwin' ? path.join(jdkRoot, subDirName, 'Contents', 'Home') : path.join(jdkRoot, subDirName);
     if (taskLib.exist(jdkDir)) {
         if (useCache) {
             console.log(`Using cache jdk directory ${jdkDir}`);
@@ -88,6 +100,7 @@ export async function downloadAndChecksum(entry: AdoptOpenJDKApiResultEntry, jdk
     }
 
     const downloaded = await toolLib.downloadTool(link);
+    console.log(`Downloaded file: ${downloaded}`);
 
     // TODO: Validate checksum
 
