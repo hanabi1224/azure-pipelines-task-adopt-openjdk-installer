@@ -29,7 +29,6 @@ describe('adopt-openjdk-api', function () {
                                 entry => {
                                     try {
                                         entry.release_name.should.not.be.empty;
-                                        entry.scm_ref.should.not.be.empty;
                                         entry.os.should.equal(os);
                                         entry.architecture.should.equal(arch);
                                         entry.jvm_impl.should.equal(jvm);
