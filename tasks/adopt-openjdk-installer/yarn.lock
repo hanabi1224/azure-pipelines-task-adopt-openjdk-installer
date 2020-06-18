@@ -32,10 +32,10 @@
   resolved "https://registry.yarnpkg.com/@types/semver/-/semver-5.5.0.tgz#146c2a29ee7d3bae4bf2fcb274636e264c813c45"
   integrity sha512-41qEJgBH/TWgo5NFSvBCJ1qkoi3Q6ONSF2avrHq1LVEZfYpdHmj0y9SuTK+u9ZhG1sYQKBL1AWXKyLWP4RaUoQ==
 
-"@types/uuid@^3.0.1":
-  version "3.4.8"
-  resolved "https://registry.yarnpkg.com/@types/uuid/-/uuid-3.4.8.tgz#4ba887fcef88bd9a7515ca2de336d691e3e18318"
-  integrity sha512-zHWce3allXWSmRx6/AGXKCtSOA7JjeWd2L3t4aHfysNk8mouQnWCocveaT7a4IEIlPVHp81jzlnknqTgCjCLXA==
+"@types/uuid@^3.4.5":
+  version "3.4.9"
+  resolved "https://registry.yarnpkg.com/@types/uuid/-/uuid-3.4.9.tgz#fcf01997bbc9f7c09ae5f91383af076d466594e1"
+  integrity sha512-XDwyIlt/47l2kWLTzw/mtrpLdB+GPSskR2n/PIcPn+VYhVO77rGhRncIR5GPU0KRzXuqkDO+J5qqrG0Y8P6jzQ==
 
 ansi-colors@4.1.1:
   version "4.1.1"
@@ -107,18 +107,18 @@ azure-pipelines-task-lib@^2.8.0, azure-pipelines-task-lib@^2.9.5:
     sync-request "3.0.1"
     uuid "^3.0.1"
 
-azure-pipelines-tool-lib@^0.12.0:
-  version "0.12.0"
-  resolved "https://registry.yarnpkg.com/azure-pipelines-tool-lib/-/azure-pipelines-tool-lib-0.12.0.tgz#50fc45d7f4768f8fdf7503c7e74c1261f29a63d5"
-  integrity sha512-JAlFvMTtEXISrnJY/kgq0LecLi089RqXRf/gMsXYbflmzszklkc+LUJpR0A7NDmJ+9/MWpKY/ZX+Q/zirYa7gw==
+azure-pipelines-tool-lib@^0.13.2:
+  version "0.13.2"
+  resolved "https://registry.yarnpkg.com/azure-pipelines-tool-lib/-/azure-pipelines-tool-lib-0.13.2.tgz#ca8f6afec9054d9f5a46ef858682fe6e2252eb46"
+  integrity sha512-PShNt65FlSFSLXXNUM+Q1qJOfebFnod4wqWPdvxvgjWGWy6JJabPzqwzmpP06gIQ6eyvBe7bUp0WcoXxeMaGKg==
   dependencies:
     "@types/semver" "^5.3.0"
-    "@types/uuid" "^3.0.1"
+    "@types/uuid" "^3.4.5"
     azure-pipelines-task-lib "^2.8.0"
-    semver "^5.3.0"
+    semver "^5.7.0"
     semver-compare "^1.0.0"
-    typed-rest-client "1.0.9"
-    uuid "^3.0.1"
+    typed-rest-client "^1.7.3"
+    uuid "^3.3.2"
 
 balanced-match@^1.0.0:
   version "1.0.0"
@@ -843,7 +843,7 @@ semver-compare@^1.0.0:
   resolved "https://registry.yarnpkg.com/semver-compare/-/semver-compare-1.0.0.tgz#0dee216a1c941ab37e9efb1788f6afc5ff5537fc"
   integrity sha1-De4hahyUGrN+nvsXiPavxf9VN/w=
 
-semver@^5.1.0, semver@^5.3.0:
+semver@^5.1.0, semver@^5.7.0:
   version "5.7.1"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.7.1.tgz#a954f931aeba508d307bbf069eff0c01c96116f7"
   integrity sha512-sauaDf/PZdVgrLTNYHRtpXa1iRiKcaebiKQ1BJdpQlWH2lCvexQdX55snPFyK7QzpudqbCI0qXFfOasHdyNDGQ==
@@ -969,11 +969,6 @@ to-regex-range@^5.0.1:
   dependencies:
     is-number "^7.0.0"
 
-tunnel@0.0.4:
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/tunnel/-/tunnel-0.0.4.tgz#2d3785a158c174c9a16dc2c046ec5fc5f1742213"
-  integrity sha1-LTeFoVjBdMmhbcLARuxfxfF0IhM=
-
 tunnel@0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/tunnel/-/tunnel-0.0.6.tgz#72f1314b34a5b192db012324df2cc587ca47f92c"
@@ -983,14 +978,6 @@ type-detect@^4.0.0, type-detect@^4.0.5:
   version "4.0.8"
   resolved "https://registry.yarnpkg.com/type-detect/-/type-detect-4.0.8.tgz#7646fb5f18871cfbb7749e69bd39a6388eb7450c"
   integrity sha512-0fr/mIH1dlO+x7TlcMy+bIDqKPsw/70tVyeHW787goQjhmqaZe10uwLujubK9q9Lg6Fiho1KUKDYz0Z7k7g5/g==
-
-typed-rest-client@1.0.9:
-  version "1.0.9"
-  resolved "https://registry.yarnpkg.com/typed-rest-client/-/typed-rest-client-1.0.9.tgz#5317b607c9c8ee425b64260c9249d400d0a6bf1a"
-  integrity sha512-iOdwgmnP/tF6Qs+oY4iEtCf/3fnCDl7Gy9LGPJ4E3M4Wj3uaSko15FVwbsaBmnBqTJORnXBWVY5306D4HH8oiA==
-  dependencies:
-    tunnel "0.0.4"
-    underscore "1.8.3"
 
 typed-rest-client@^1.7.3:
   version "1.7.3"
@@ -1016,7 +1003,7 @@ util-deprecate@~1.0.1:
   resolved "https://registry.yarnpkg.com/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
   integrity sha1-RQ1Nyfpw3nMnYvvS1KKJgUGaDM8=
 
-uuid@^3.0.1:
+uuid@^3.0.1, uuid@^3.3.2:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
   integrity sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==
