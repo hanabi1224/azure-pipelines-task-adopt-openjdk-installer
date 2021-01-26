@@ -999,9 +999,9 @@ type-detect@^4.0.0, type-detect@^4.0.5:
   integrity sha512-0fr/mIH1dlO+x7TlcMy+bIDqKPsw/70tVyeHW787goQjhmqaZe10uwLujubK9q9Lg6Fiho1KUKDYz0Z7k7g5/g==
 
 typed-rest-client@^1.7.3:
-  version "1.7.3"
-  resolved "https://registry.yarnpkg.com/typed-rest-client/-/typed-rest-client-1.7.3.tgz#1beb263b86b14d34596f6127c6172dd5fd652e7b"
-  integrity sha512-CwTpx/TkRHGZoHkJhBcp4X8K3/WtlzSHVQR0OIFnt10j4tgy4ypgq/SrrgVpA1s6tAL49Q6J3R5C0Cgfh2ddqA==
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/typed-rest-client/-/typed-rest-client-1.8.0.tgz#3b6c22a7cc31b665ec1e4bedb3482ebe12e2fbe6"
+  integrity sha512-Nu1MrdH6ECrRW5gHoRAdubgCs4oH6q5/J76jsEC8bVDfvVoVPkigukPalhMHPwb7ZvpsZqPptd5zpt/QdtrdBw==
   dependencies:
     qs "^6.9.1"
     tunnel "0.0.6"
