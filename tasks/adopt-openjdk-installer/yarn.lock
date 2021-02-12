@@ -95,9 +95,9 @@ assertion-error@^1.1.0:
   integrity sha512-jgsaNduz+ndvGyFt3uSuWqvy4lCnIJiovtouQN5JZHOKCS2QuhEdbcQHFhVksz2N2U9hXJo8odG7ETyWlEeuDw==
 
 azure-pipelines-task-lib@^2.8.0, azure-pipelines-task-lib@^2.9.5:
-  version "2.12.1"
-  resolved "https://registry.yarnpkg.com/azure-pipelines-task-lib/-/azure-pipelines-task-lib-2.12.1.tgz#fe95df9fbd17f0deae87181f7941b25d89697760"
-  integrity sha512-7S3fc67M0SqvQ3gZn2liTf9bjiU36wRurF6de31FF8FaI/3tlConbRlYlPqIEJ5ZI0qDG2l4YUAGxHouu5EeWg==
+  version "2.12.2"
+  resolved "https://registry.yarnpkg.com/azure-pipelines-task-lib/-/azure-pipelines-task-lib-2.12.2.tgz#a2e2607b3daa25ab8445c00ea823bf37b0147f4c"
+  integrity sha512-ofAdVZcL90Qv6zYcKa1vK3Wnrl2kxoKX/Idvb7RWrqHQzcJlAEjCU4UCB5y6NnSKqRSyVTIhdS6hChphpOaiMQ==
   dependencies:
     minimatch "3.0.4"
     mockery "^1.7.0"
