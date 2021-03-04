@@ -22,19 +22,20 @@ jobs:
         run: |
           npm install --global yarn
           yarn --version
-          export PATH="$(yarn global bin):$PATH"
+          yarn global bin
           yarn global add tfx-cli
           yarn global add typescript
           yarn global add lerna
       - name: Build
         run: |
+          export PATH="$(yarn global bin):$PATH"
           lerna bootstrap
           lerna run build
-        # tfx extension create --manifest-globs adopt-openjdk-installer.json
+          tfx extension create --manifest-globs adopt-openjdk-installer.json
       - name: Test
         run: |
           lerna run test
       - uses: actions/upload-artifact@v2
         with:
           path: "**/*.vsix"
-          # if-no-files-found: error
+          if-no-files-found: error
