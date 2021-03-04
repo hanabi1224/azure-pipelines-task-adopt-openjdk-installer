@@ -10,7 +10,7 @@ describe('adopt-openjdk-api', function () {
     describe('fetch', function () {
         const osList: OsType[] = ['windows', 'linux', 'mac'];
         const jvmList: JvmType[] = ['hotspot', 'openj9'];
-        const jdkVersions = [8, 11, 12, 13, 14];
+        const jdkVersions = [8, 11, 15];
         const archList: ArchitectureType[] = ['x64', 'x86'];
 
         osList.forEach(os => {
