@@ -1,0 +1,56 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: "@types/node"
+    versions:
+    - "^10.x"
+  - dependency-name: "@types/node"
+    versions:
+    - 13.11.1
+    - 14.14.31
+    - 14.14.32
+    - 14.14.33
+    - 14.14.34
+    - 14.14.35
+    - 14.14.36
+    - 14.14.37
+    - 14.14.39
+    - 14.14.41
+    - 15.0.0
+  - dependency-name: "@types/chai"
+    versions:
+    - 4.2.14
+    - 4.2.15
+    - 4.2.16
+  - dependency-name: chai
+    versions:
+    - 4.3.0
+    - 4.3.1
+    - 4.3.3
+  - dependency-name: lodash
+    versions:
+    - 4.17.21
+  - dependency-name: azure-pipelines-tool-lib
+    versions:
+    - 1.0.1
+  - dependency-name: azure-pipelines-task-lib
+    versions:
+    - 2.12.2
+    - 3.1.0
+  - dependency-name: typed-rest-client
+    versions:
+    - 1.8.1
+  - dependency-name: "@types/lodash"
+    versions:
+    - 4.14.168
+  - dependency-name: mocha
+    versions:
+    - 8.1.2
+  - dependency-name: "@types/mocha"
+    versions:
+    - 8.0.1
