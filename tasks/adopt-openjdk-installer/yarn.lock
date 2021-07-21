@@ -122,9 +122,9 @@ asynckit@^0.4.0:
   integrity sha1-x57Zf380y48robyXkLzDZkdLS3k=
 
 azure-pipelines-task-lib@^3.1.0:
-  version "3.1.2"
-  resolved "https://registry.yarnpkg.com/azure-pipelines-task-lib/-/azure-pipelines-task-lib-3.1.2.tgz#510f3a4be68fc5e3222ee62993d796359dd77dc4"
-  integrity sha512-ZafpInsnjHKGemA5l3jwfeaI8jARrIv5aYCn3KPP4iNJHgMG2RtwyFGynIfpkUsHMfzC/370iyLru0NGAuSVWQ==
+  version "3.1.5"
+  resolved "https://registry.yarnpkg.com/azure-pipelines-task-lib/-/azure-pipelines-task-lib-3.1.5.tgz#87463ae242b3a741536c114f4b090fec4117a7aa"
+  integrity sha512-johiXMPikehxw1V2WeM435AMrRWzvrZO/SHiFGfjhsuXPzhnHc3+QWn+w0Y11Oy8gmnQkPxJHNOtTzaKh2YBoQ==
   dependencies:
     minimatch "3.0.4"
     mockery "^1.7.0"
