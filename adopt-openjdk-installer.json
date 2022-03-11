@@ -2,7 +2,7 @@
     "manifestVersion": 1,
     "id": "adopt-openjdk-installer",
     "name": "AdoptOpenJDK Installer for Azure DevOps",
-    "version": "1.0.11",
+    "version": "1.0.12",
     "publisher": "hanabi1224",
     "public": true,
     "targets": [

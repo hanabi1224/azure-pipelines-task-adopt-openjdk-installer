@@ -47,14 +47,14 @@ describe('adopt-openjdk-api', function () {
     describe('filter', function () {
         this.retries(2);
 
-        it('jdk-11.0.6+10', async function () {
+        it('jdk-11.0.12+7-openj9', async function () {
             const entries = await AdoptOpenJDKApi.fetch('windows', 'openj9', 11, 'x64');
             entries.length.should.greaterThan(0);
-            const found = AdoptOpenJDKApi.filter(entries, '11.0.6+10');
-            found.release_name.should.equal('jdk-11.0.6+10_openj9-0.18.1');
+            const found = AdoptOpenJDKApi.filter(entries, 'jdk-11.0.12+7');
+            found.release_name.should.equal('jdk-11.0.12+7_openj9-0.27.0');
         });
 
-        it('jdk-11-latest', async function () {
+        it('jdk-11-latest-openj9', async function () {
             const entries = await AdoptOpenJDKApi.fetch('windows', 'openj9', 11, 'x64');
             entries.length.should.greaterThan(0);
             const found = AdoptOpenJDKApi.filter(entries, '');
